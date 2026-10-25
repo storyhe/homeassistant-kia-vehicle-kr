@@ -1,0 +1,68 @@
+{
+  "title": "Kia Vehicle KR",
+  "application_credentials": {
+    "description": "Create a project in the [Kia Developers console]({console_url}). Register `{callback_url}` as the Account API Redirect URL. `{consent_callback_url}` is needed as the Data API Redirect URL only when Kia requires a separate data-sharing agreement. If the displayed address differs from the externally reachable Home Assistant URL, correct Home Assistant's external URL setting before continuing."
+  },
+  "config": {
+    "step": {
+      "vehicles": {
+        "title": "Choose vehicles",
+        "description": "Select every Kia vehicle to add to Home Assistant. Only vehicles authorized during Kia login are shown.",
+        "data": {
+          "vehicle_ids": "Vehicles"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reconnect Kia Vehicle KR",
+        "description": "Kia no longer accepts the saved authorization. Continue to sign in again."
+      },
+      "consent": {
+        "title": "Approve Kia data sharing",
+        "description": "Continue in the Kia window to approve third-party personal-data sharing."
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to retrieve vehicles from Kia. Confirm data-sharing consent and try again.",
+      "select_vehicle": "Select at least one vehicle.",
+      "invalid_vehicle": "One or more selected vehicles are no longer available."
+    },
+    "abort": {
+      "cannot_connect": "Unable to verify the Kia account during reauthentication. Try again later.",
+      "no_vehicles": "Kia returned no authorized vehicles. Confirm vehicle access and third-party data-sharing consent in Kia Developers.",
+      "consent_failed": "Kia's data-sharing consent page could not be opened. Verify the Data API Redirect URL in Kia Developers.",
+      "invalid_consent_callback": "Kia returned an invalid or expired data-sharing consent result."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Configure Kia Vehicle KR",
+        "description": "Choose the vehicles to expose and how often Home Assistant requests fresh data.",
+        "data": {
+          "vehicle_ids": "Vehicles",
+          "update_interval": "Update interval (minutes)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to retrieve vehicles from Kia. Try again later.",
+      "select_vehicle": "Select at least one vehicle."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "driving_range": {
+        "name": "Driving range"
+      },
+      "odometer": {
+        "name": "Odometer"
+      }
+    },
+    "button": {
+      "refresh": {
+        "name": "Refresh"
+      }
+    }
+  }
+}
+
